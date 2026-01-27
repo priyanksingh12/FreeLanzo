@@ -1,15 +1,18 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import { FaGlobe } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
 
 
 const Landing = () => {
+
+  const navigate=useNavigate();
   return (
     <>
       <Navbar />
 
       
-      <section className="bg-[#F3F4F6] py-24">
+      <section className="bg-[#6b46c118] py-24">
         <div className="max-w-6xl mx-auto px-10 grid md:grid-cols-2 gap-10 items-center">
 
           
@@ -29,20 +32,15 @@ const Landing = () => {
             </p>
 
             <div className="mt-8 flex gap-4">
-              <button className="bg-[#6B46C1] text-white px-8 py-3 rounded-xl font-semibold hover:bg-[#553C9A] transition">
+              <button  onClick={() => navigate("/signup")} className="bg-[#6B46C1] text-white px-8 py-3 rounded-xl font-semibold hover:bg-[#553C9A] transition">
                 Get Started
               </button>
-              <button className="border border-[#6B46C1] text-[#6B46C1] px-8 py-3 rounded-xl font-semibold hover:bg-[#E9D5FF] transition">
+              <button onClick={() => navigate("/login")} className="border border-[#6B46C1] text-[#6B46C1] px-8 py-3 rounded-xl font-semibold hover:bg-[#E9D5FF] transition">
                 Login
               </button>
             </div>
 
-            <div className="flex items-center gap-3 mt-6 text-sm text-[#6B7280]">
-              <span className="w-3 h-3 bg-[#10B981] rounded-full"></span>
-              <span>
-                Joined by <span className="text-[#6B46C1] font-semibold">2,000+</span> pros this week
-              </span>
-            </div>
+          
           </div>
 
           
