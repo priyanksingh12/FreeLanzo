@@ -50,11 +50,11 @@ const Step = ({ icon, title, desc }) => (
       <Navbar />
 
       
-      <section className="bg-[#6b46c118] py-24">
+      <section className="bg-[#6b46c141] py-24">
         <div className="max-w-6xl mx-auto px-10 grid md:grid-cols-2 gap-10 items-center">
           <div>
-            <span className="inline-flex items-center gap-2 bg-[#E9D5FF] text-[#6B46C1] px-4 py-1 rounded-full text-sm font-semibold mb-4">
-              <FaGlobe className="text-[#6B46C1]" />
+            <span className="inline-flex items-center gap-2 bg-[#E9D5FF] text-[#1F2937] px-4 py-1 rounded-full text-sm font-semibold mb-4">
+              <FaGlobe className="text-[#1F2937]" />
               THE WORLD'S #1 PREMIUM MARKETPLACE
             </span>
 
@@ -356,7 +356,7 @@ const Step = ({ icon, title, desc }) => (
 </section>
 
 
-<section className="bg-[#0f172ad5] py-20 text-white">
+<section className="bg-[#0f172ad5] pt-20 text-white">
   <div className="max-w-7xl mx-auto px-10">
 
     
@@ -422,6 +422,67 @@ const Step = ({ icon, title, desc }) => (
   </div>
 </section>
 
+<section className="bg-[#0f172ad5] py-20 text-white">
+  <div className="max-w-6xl mx-auto px-10 text-center mb-12">
+    <h2 className="text-4xl font-bold">Ready to join the network?</h2>
+  </div>
+
+  <div className="max-w-6xl mx-auto px-10 grid md:grid-cols-2 gap-8">
+
+    <div className="bg-[#111827] rounded-2xl overflow-hidden shadow-lg">
+      <img
+        src="/images/hire.jpg"
+        alt="Looking to Hire"
+        className="w-full h-56 object-cover"
+      />
+
+      <div className="p-8">
+        <h3 className="text-2xl font-semibold mb-2">Looking to Hire?</h3>
+        <p className="text-[#A5B4FC] mb-2">
+          Find the perfect pro for your project today.
+        </p>
+        <p className="text-[#9CA3AF] text-sm mb-6">
+          Post your job for free and get expert quotes in under an hour.
+        </p>
+
+      <button
+  onClick={() => navigate("/signup")}
+  className="w-full bg-[#6B46C1] hover:bg-[#553C9A] transition text-white py-3 rounded-xl font-semibold"
+>
+  Post a Job
+</button>
+
+      </div>
+    </div>
+
+   
+    <div className="bg-[#111827] rounded-2xl overflow-hidden shadow-lg">
+      <img
+        src="/images/work.jpg"
+        alt="Looking for Work"
+        className="w-full h-56 object-cover"
+      />
+
+      <div className="p-8">
+        <h3 className="text-2xl font-semibold mb-2">Looking for Work?</h3>
+        <p className="text-[#A5B4FC] mb-2">
+          Access high-paying gigs and grow your career.
+        </p>
+        <p className="text-[#9CA3AF] text-sm mb-6">
+          Join a community of elite freelancers and get paid what you're worth.
+        </p>
+<button
+  onClick={() => navigate("/signup")}
+  className="w-full bg-[#6B46C1] hover:bg-[#553C9A] transition text-white py-3 rounded-xl font-semibold"
+>
+  Join as Pro
+</button>
+
+      </div>
+    </div>
+
+  </div>
+</section>
 
     </>
   );
