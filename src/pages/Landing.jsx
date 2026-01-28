@@ -1,7 +1,8 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
-import { FaGlobe, FaUsers, FaHandshake, FaBriefcase,FaCode, FaPaintBrush, FaPenNib, FaBullhorn, FaChartLine ,FaHome } from "react-icons/fa";
+import { FaGlobe, FaUsers, FaHandshake, FaBriefcase,FaCode, FaPaintBrush, FaPenNib, FaBullhorn, FaChartLine ,FaHome ,FaUserCheck, FaLock, FaUserPlus,FaWallet} from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 import googleLogo from "../assets/logos/google.png";
 import metaLogo from "../assets/logos/meta.png";
@@ -10,9 +11,16 @@ import netflixLogo from "../assets/logos/netflix.png";
 import microsoftLogo from "../assets/logos/microsoft.png";
 import appleLogo from "../assets/logos/apple.png";
 
+
+
+
+
+
+
 const Landing = () => {
 
   const navigate = useNavigate();
+
 
   const logos = [
     googleLogo,
@@ -22,6 +30,20 @@ const Landing = () => {
     microsoftLogo,
     appleLogo,
   ];
+
+  const [activeTab, setActiveTab] = useState("client");
+
+  
+const Step = ({ icon, title, desc }) => (
+  <div className="bg-[#F9FAFB] rounded-2xl p-8 shadow hover:shadow-lg transition">
+    <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-[#E9D5FF] text-[#6B46C1] text-xl mb-4">
+      {icon}
+    </div>
+    <h3 className="font-semibold text-xl text-[#1F2937]">{title}</h3>
+    <p className="text-[#6B7280] mt-2 text-md leading-relaxed">{desc}</p>
+  </div>
+);
+
 
   return (
     <>
@@ -72,22 +94,22 @@ const Landing = () => {
       </section>
 
     
-      <section className="bg-white py-20">
+      <section className="bg-[#6b728018] pt-20 pb-10">
         <h2 className="text-center text-md font-semibold tracking-widest text-[#6B7280] uppercase mb-10">
           Trusted by leading companies worldwide
         </h2>
 
-   <div className="overflow-hidden w-full">
+   <div className=" w-full">
   <div className="relative w-full">
     <div className="flex w-max animate-marquee">
       {[...logos, ...logos].map((logo, i) => (
        <div
   key={i}
-  className="logo-card shrink-0 w-48 h-28 mx-6 flex items-center justify-center 
+  className="logo-card shrink-0 w-48 h-30 mx-6 flex items-center justify-center 
              rounded-2xl bg-white/80 
              border border-gray-200 
              shadow-md  transition-transform duration-300 ease-out
-             hover:scale-130 hover:shadow-lg"
+             hover:scale-120 hover:shadow-lg"
 >
   <img
     src={logo}
@@ -103,11 +125,11 @@ const Landing = () => {
 
       </section>
 
-     <section className="bg-[#6b46c118] pt-24">
+     <section className="bg-[#6b728018] pt-20">
   <div className="max-w-8xl mx-auto px-10 grid md:grid-cols-3 gap-8">
 
   
-    <div className="bg-white rounded-2xl p-14 shadow-md hover:shadow-xl transition">
+    <div className="bg-white rounded-2xl p-16 shadow-md hover:shadow-xl transition">
       <div className="flex items-center justify-between">
         <p className="text-xl font-semibold text-[#6B7280] uppercase">Professionals</p>
         <FaUsers className="text-[#3B82F6] text-4xl" />
@@ -146,7 +168,7 @@ const Landing = () => {
 </section>
 
 
-<section id="browse" className="bg-[#6b46c118] py-20">
+<section id="browse" className="bg-[#6b728018] pt-20">
   <div className="max-w-8xl mx-auto px-10">
     
     <div className="flex items-center gap-3 mb-12">
@@ -165,7 +187,7 @@ const Landing = () => {
       </div>
       <h3 className="font-semibold text-xl text-[#1F2937]">Software</h3>
     </div>
-    <span className="text-lg text-[#6B7280] font-medium">1.2k+ Experts</span>
+    <span className="text-md text-[#6B7280] font-medium">1.2k+ Experts</span>
   </div>
 
   <div className="flex flex-wrap gap-2 mt-4">
@@ -184,7 +206,7 @@ const Landing = () => {
       </div>
       <h3 className="font-semibold text-xl text-[#1F2937]">Design</h3>
     </div>
-    <span className="text-lg text-[#6B7280] font-medium">850+ Experts</span>
+    <span className="text-md text-[#6B7280] font-medium">850+ Experts</span>
   </div>
 
   <div className="flex flex-wrap gap-2 mt-4">
@@ -203,7 +225,7 @@ const Landing = () => {
       </div>
       <h3 className="font-semibold text-xl text-[#1F2937]">Writing</h3>
     </div>
-    <span className="text-lg text-[#6B7280] font-medium">600+ Experts</span>
+    <span className="text-md text-[#6B7280] font-medium">600+ Experts</span>
   </div>
 
   <div className="flex flex-wrap gap-2 mt-4">
@@ -222,7 +244,7 @@ const Landing = () => {
       </div>
       <h3 className="font-semibold text-xl text-[#1F2937]">Marketing</h3>
     </div>
-    <span className="text-lg text-[#6B7280] font-medium">940+ Experts</span>
+    <span className="text-md text-[#6B7280] font-medium">940+ Experts</span>
   </div>
 
   <div className="flex flex-wrap gap-2 mt-4">
@@ -241,7 +263,7 @@ const Landing = () => {
       </div>
       <h3 className="font-semibold text-xl text-[#1F2937]">Home Services</h3>
     </div>
-    <span className="text-lg text-[#6B7280] font-medium">420+ Experts</span>
+    <span className="text-md text-[#6B7280] font-medium">420+ Experts</span>
   </div>
 
   <div className="flex flex-wrap gap-2 mt-4">
@@ -260,7 +282,7 @@ const Landing = () => {
       </div>
       <h3 className="font-semibold text-xl text-[#1F2937]">Consulting</h3>
     </div>
-    <span className="text-lg text-[#6B7280] font-medium">310+ Experts</span>
+    <span className="text-md text-[#6B7280] font-medium">310+ Experts</span>
   </div>
 
   <div className="flex flex-wrap gap-2 mt-4">
@@ -271,6 +293,63 @@ const Landing = () => {
 </div>
 
 
+
+    </div>
+  </div>
+</section>
+
+
+<section id="how" className="bg-[#6b728018] py-24">
+  <div className="max-w-8xl mx-auto px-10">
+
+    <div className="flex items-center gap-3 mb-10">
+      <div className="w-1 h-8 bg-[#6B46C1] rounded-full"></div>
+      <h2 className="text-3xl font-bold text-[#1F2937]">How It Works</h2>
+    </div>
+
+    <div className="flex justify-center mb-12">
+  <div className="flex bg-white rounded-xl p-1 w-fit">
+    <button
+      onClick={() => setActiveTab("client")}
+      className={`px-6 py-4 rounded-lg  text-lg font-medium transition ${
+        activeTab === "client"
+          ? "bg-[#6b46c118] text-[#6B46C1] shadow"
+          : "text-[#6B7280]"
+      }`}
+    >
+      For Clients
+    </button>
+    <button
+      onClick={() => setActiveTab("freelancer")}
+      className={`px-6 py-4 rounded-lg text-lg font-medium transition ${
+        activeTab === "freelancer"
+          ? "bg-[#6b46c118] text-[#6B46C1] shadow"
+          : "text-[#6B7280]"
+      }`}
+    >
+      For Freelancers
+    </button>
+  </div>
+</div>
+
+   
+    <div className="grid md:grid-cols-3 gap-8">
+
+      {activeTab === "client" && (
+        <>
+          <Step icon={<FaBriefcase />} title="Post a Job" desc="Define your project goals, timeline, and budget in minutes." />
+          <Step icon={<FaUserCheck />} title="Get Matched" desc="Our AI matches you with the best-suited professionals." />
+          <Step icon={<FaLock />} title="Hire & Pay Securely" desc="Funds are held in escrow and released only when satisfied." />
+        </>
+      )}
+
+      {activeTab === "freelancer" && (
+        <>
+          <Step icon={<FaUserPlus />} title="Create Profile" desc="Showcase your skills, experience, and portfolio." />
+          <Step icon={<FaHandshake />} title="Get Gigs" desc="Receive high-quality job offers from verified clients." />
+          <Step icon={<FaWallet />} title="Earn & Withdraw" desc="Get paid securely and withdraw earnings anytime." />
+        </>
+      )}
 
     </div>
   </div>
