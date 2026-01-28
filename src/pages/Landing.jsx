@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
-import { FaGlobe } from "react-icons/fa";
+import { FaGlobe, FaUsers, FaHandshake, FaBriefcase } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 
 import googleLogo from "../assets/logos/google.png";
@@ -27,7 +27,7 @@ const Landing = () => {
     <>
       <Navbar />
 
-      {/* Hero */}
+      
       <section className="bg-[#6b46c118] py-24">
         <div className="max-w-6xl mx-auto px-10 grid md:grid-cols-2 gap-10 items-center">
           <div>
@@ -102,6 +102,49 @@ const Landing = () => {
 </div>
 
       </section>
+
+     <section className="bg-[#6b46c118] py-24">
+  <div className="max-w-8xl mx-auto px-10 grid md:grid-cols-3 gap-8">
+
+  
+    <div className="bg-white rounded-2xl p-14 shadow-md hover:shadow-xl transition">
+      <div className="flex items-center justify-between">
+        <p className="text-xl font-semibold text-[#6B7280] uppercase">Professionals</p>
+        <FaUsers className="text-[#3B82F6] text-4xl" />
+      </div>
+      <h3 className="text-5xl font-bold text-[#1F2937] mt-4">100k+</h3>
+      <p className="text-[#6B7280] mt-5 text-md">
+        Vetted experts across design, engineering, and marketing ready to start.
+      </p>
+    </div>
+
+  
+    <div className="bg-white rounded-2xl p-14 shadow-md hover:shadow-xl transition">
+      <div className="flex items-center justify-between">
+        <p className="text-xl font-semibold text-[#6B7280] uppercase">Clients</p>
+        <FaHandshake className="text-[#10B981] text-4xl" />
+      </div>
+      <h3 className="text-5xl font-bold text-[#1F2937] mt-4">50k+</h3>
+      <p className="text-[#6B7280] mt-5 text-md">
+        From Fortune 500s to scaling startups trust FreeLanzo for their projects.
+      </p>
+    </div>
+
+    
+    <div className="bg-white rounded-2xl p-14 shadow-md hover:shadow-xl transition">
+      <div className="flex items-center justify-between">
+        <p className="text-xl font-semibold text-[#6B7280] uppercase">Jobs Completed</p>
+        <FaBriefcase className="text-[#FB923C] text-4xl" />
+      </div>
+      <h3 className="text-5xl font-bold text-[#1F2937] mt-4">1M+</h3>
+      <p className="text-[#6B7280] mt-5 text-md">
+        Successful collaborations delivering value across industries globally.
+      </p>
+    </div>
+
+  </div>
+</section>
+
     </>
   );
 };
