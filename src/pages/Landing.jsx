@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
-import { FaGlobe, FaUsers, FaHandshake, FaBriefcase,FaCode, FaPaintBrush, FaPenNib, FaBullhorn, FaChartLine ,FaHome ,FaUserCheck, FaLock, FaUserPlus,FaWallet} from "react-icons/fa";
+import { FaGlobe, FaUsers, FaHandshake, FaBriefcase,FaCode, FaPaintBrush, FaPenNib, FaBullhorn, FaChartLine ,FaHome ,FaUserCheck, FaLock, FaUserPlus,FaWallet,FaShieldAlt,  FaBolt, FaRobot} from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
@@ -350,6 +350,73 @@ const Step = ({ icon, title, desc }) => (
           <Step icon={<FaWallet />} title="Earn & Withdraw" desc="Get paid securely and withdraw earnings anytime." />
         </>
       )}
+
+    </div>
+  </div>
+</section>
+
+
+<section className="bg-[#0f172ad5] py-20 text-white">
+  <div className="max-w-7xl mx-auto px-10">
+
+    
+    <div className="text-center mb-12">
+  <p className="text-xl tracking-widest text-[#10B981] font-semibold mb-3">
+    WHY CHOOSE US
+  </p>
+  <h2 className="text-4xl font-bold mb-4">
+    The New Standard for Professional Gigs
+  </h2>
+  <p className="text-[#9CA3AF] max-w-2xl mx-auto">
+    Experience the most secure and efficient way to connect with top-tier talent and find your next high-paying project.
+  </p>
+</div>
+  
+    <div className="grid md:grid-cols-2 gap-6">
+
+      
+      <div className="bg-[#111827] border border-[#1F2937] rounded-2xl p-6  transition">
+        <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-[#022C22] text-[#10B981] mb-4">
+          <FaShieldAlt className="text-xl" />
+        </div>
+        <h3 className="text-xl font-semibold mb-2">Verified Professionals</h3>
+        <p className="text-[#9CA3AF] text-sm">
+          Every professional is hand-vetted by our team for quality and reliability.
+        </p>
+      </div>
+
+      
+      <div className="bg-[#111827] border border-[#1F2937] rounded-2xl p-6  transition">
+        <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-[#022C22] text-[#10B981] mb-4">
+          <FaLock className="text-xl" />
+        </div>
+        <h3 className="text-xl font-semibold mb-2">Escrow Protection</h3>
+        <p className="text-[#9CA3AF] text-sm">
+          Payments are held securely in escrow until work is reviewed and approved.
+        </p>
+      </div>
+
+     
+      <div className="bg-[#111827] border border-[#1F2937] rounded-2xl p-6  transition">
+        <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-[#022C22] text-[#10B981] mb-4">
+          <FaRobot className="text-xl" />
+        </div>
+        <h3 className="text-xl font-semibold mb-2">AI Matching</h3>
+        <p className="text-[#9CA3AF] text-sm">
+          Get matched with the perfect talent in minutes using our advanced algorithm.
+        </p>
+      </div>
+
+     
+      <div className="bg-[#111827] border border-[#1F2937] rounded-2xl p-6  transition">
+        <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-[#022C22] text-[#10B981] mb-4">
+          <FaBolt className="text-xl" />
+        </div>
+        <h3 className="text-xl font-semibold mb-2">Fast & Reliable</h3>
+        <p className="text-[#9CA3AF] text-sm">
+          Launch projects quickly with high-quality professionals ready to work.
+        </p>
+      </div>
 
     </div>
   </div>
