@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
-import { FaGlobe, FaUsers, FaHandshake, FaBriefcase } from "react-icons/fa";
+import { FaGlobe, FaUsers, FaHandshake, FaBriefcase,FaCode, FaPaintBrush, FaPenNib, FaBullhorn, FaChartLine ,FaHome } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 
 import googleLogo from "../assets/logos/google.png";
@@ -103,7 +103,7 @@ const Landing = () => {
 
       </section>
 
-     <section className="bg-[#6b46c118] py-24">
+     <section className="bg-[#6b46c118] pt-24">
   <div className="max-w-8xl mx-auto px-10 grid md:grid-cols-3 gap-8">
 
   
@@ -144,6 +144,138 @@ const Landing = () => {
 
   </div>
 </section>
+
+
+<section id="browse" className="bg-[#6b46c118] py-20">
+  <div className="max-w-8xl mx-auto px-10">
+    
+    <div className="flex items-center gap-3 mb-12">
+      <div className="w-1 h-8 bg-[#6B46C1] rounded-full"></div>
+      <h2 className="text-3xl font-bold text-[#1F2937]">Popular Categories</h2>
+    </div>
+
+    <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-12">
+
+    
+<div className="bg-white rounded-2xl p-6 shadow hover:shadow-lg transition">
+  <div className="flex items-center justify-between">
+    <div className="flex items-center gap-2">
+      <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-[#E9D5FF] text-[#6B46C1]">
+        <FaCode className="text-xl" />
+      </div>
+      <h3 className="font-semibold text-xl text-[#1F2937]">Software</h3>
+    </div>
+    <span className="text-lg text-[#6B7280] font-medium">1.2k+ Experts</span>
+  </div>
+
+  <div className="flex flex-wrap gap-2 mt-4">
+    <span className="px-2.5 py-1 text-sm bg-[#E9D5FF] text-[#6B46C1] rounded-full">Web</span>
+    <span className="px-2.5 py-1 text-sm bg-[#E9D5FF] text-[#6B46C1] rounded-full">Mobile</span>
+    <span className="px-2.5 py-1 text-sm bg-[#E9D5FF] text-[#6B46C1] rounded-full">Cloud</span>
+  </div>
+</div>
+
+
+<div className="bg-white rounded-2xl p-6 shadow hover:shadow-lg transition">
+  <div className="flex items-center justify-between">
+    <div className="flex items-center gap-2">
+      <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-[#DBEAFE] text-[#3B82F6]">
+        <FaPaintBrush className="text-xl" />
+      </div>
+      <h3 className="font-semibold text-xl text-[#1F2937]">Design</h3>
+    </div>
+    <span className="text-lg text-[#6B7280] font-medium">850+ Experts</span>
+  </div>
+
+  <div className="flex flex-wrap gap-2 mt-4">
+    <span className="px-2.5 py-1 text-sm bg-[#DBEAFE] text-[#3B82F6] rounded-full">UI/UX</span>
+    <span className="px-2.5 py-1 text-sm bg-[#DBEAFE] text-[#3B82F6] rounded-full">Branding</span>
+    <span className="px-2.5 py-1 text-sm bg-[#DBEAFE] text-[#3B82F6] rounded-full">Illustration</span>
+  </div>
+</div>
+
+
+<div className="bg-white rounded-2xl p-6 shadow hover:shadow-lg transition">
+  <div className="flex items-center justify-between">
+    <div className="flex items-center gap-2">
+      <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-[#E0F2FE] text-[#0EA5E9]">
+        <FaPenNib className="text-xl" />
+      </div>
+      <h3 className="font-semibold text-xl text-[#1F2937]">Writing</h3>
+    </div>
+    <span className="text-lg text-[#6B7280] font-medium">600+ Experts</span>
+  </div>
+
+  <div className="flex flex-wrap gap-2 mt-4">
+    <span className="px-2.5 py-1 text-sm bg-[#E0F2FE] text-[#0EA5E9] rounded-full">Blogs</span>
+    <span className="px-2.5 py-1 text-sm bg-[#E0F2FE] text-[#0EA5E9] rounded-full">SEO</span>
+    <span className="px-2.5 py-1 text-sm bg-[#E0F2FE] text-[#0EA5E9] rounded-full">Copy</span>
+  </div>
+</div>
+
+
+<div className="bg-white rounded-2xl p-6 shadow hover:shadow-lg transition">
+  <div className="flex items-center justify-between">
+    <div className="flex items-center gap-2">
+      <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-[#FEF3C7] text-[#F59E0B]">
+        <FaBullhorn className="text-xl" />
+      </div>
+      <h3 className="font-semibold text-xl text-[#1F2937]">Marketing</h3>
+    </div>
+    <span className="text-lg text-[#6B7280] font-medium">940+ Experts</span>
+  </div>
+
+  <div className="flex flex-wrap gap-2 mt-4">
+    <span className="px-2.5 py-1 text-sm bg-[#FEF3C7] text-[#F59E0B] rounded-full">Ads</span>
+    <span className="px-2.5 py-1 text-sm bg-[#FEF3C7] text-[#F59E0B] rounded-full">Growth</span>
+    <span className="px-2.5 py-1 text-sm bg-[#FEF3C7] text-[#F59E0B] rounded-full">Social</span>
+  </div>
+</div>
+
+
+<div className="bg-white rounded-2xl p-6 shadow hover:shadow-lg transition">
+  <div className="flex items-center justify-between">
+    <div className="flex items-center gap-2">
+      <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-[#E0E7FF] text-[#6366F1]">
+        <FaHome className="text-xl" />
+      </div>
+      <h3 className="font-semibold text-xl text-[#1F2937]">Home Services</h3>
+    </div>
+    <span className="text-lg text-[#6B7280] font-medium">420+ Experts</span>
+  </div>
+
+  <div className="flex flex-wrap gap-2 mt-4">
+    <span className="px-2.5 py-1 text-sm bg-[#E0E7FF] text-[#6366F1] rounded-full">Cleaning</span>
+    <span className="px-2.5 py-1 text-sm bg-[#E0E7FF] text-[#6366F1] rounded-full">Repair</span>
+    <span className="px-2.5 py-1 text-sm bg-[#E0E7FF] text-[#6366F1] rounded-full">Electric</span>
+  </div>
+</div>
+
+
+<div className="bg-white rounded-2xl p-6 shadow hover:shadow-lg transition">
+  <div className="flex items-center justify-between">
+    <div className="flex items-center gap-2">
+      <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-[#FEE2E2] text-[#EF4444]">
+        <FaChartLine className="text-xl" />
+      </div>
+      <h3 className="font-semibold text-xl text-[#1F2937]">Consulting</h3>
+    </div>
+    <span className="text-lg text-[#6B7280] font-medium">310+ Experts</span>
+  </div>
+
+  <div className="flex flex-wrap gap-2 mt-4">
+    <span className="px-2.5 py-1 text-sm bg-[#FEE2E2] text-[#EF4444] rounded-full">Strategy</span>
+    <span className="px-2.5 py-1 text-sm bg-[#FEE2E2] text-[#EF4444] rounded-full">Finance</span>
+    <span className="px-2.5 py-1 text-sm bg-[#FEE2E2] text-[#EF4444] rounded-full">Operations</span>
+  </div>
+</div>
+
+
+
+    </div>
+  </div>
+</section>
+
 
     </>
   );
