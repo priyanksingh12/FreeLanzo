@@ -1,5 +1,6 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
+import Footer from '../components/Footer';
 import { FaGlobe, FaUsers, FaHandshake, FaBriefcase,FaCode, FaPaintBrush, FaPenNib, FaBullhorn, FaChartLine ,FaHome ,FaUserCheck, FaLock, FaUserPlus,FaWallet,FaShieldAlt,  FaBolt, FaRobot} from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
@@ -484,6 +485,8 @@ const Step = ({ icon, title, desc }) => (
   </div>
 </section>
 
+
+<Footer/>
     </>
   );
 };
