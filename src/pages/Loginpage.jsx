@@ -1,5 +1,10 @@
-const Login = () => {
-  return <h1 className="text-3xl font-bold text-center mt-20">Login Page</h1>;
-};
+import React from 'react'
 
-export default Login;
+const Loginpage = () => {
+  return (
+    <div>Loginpage</div>
+  )
+}
+
+export default Loginpage
+

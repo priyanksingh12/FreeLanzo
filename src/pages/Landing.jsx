@@ -45,6 +45,51 @@ const Step = ({ icon, title, desc }) => (
   </div>
 );
 
+const testimonials = [
+  {
+    review: "FreeLanzo helped us find a world-class React developer in 24 hours. Outstanding quality and smooth process.",
+    name: "Aarav Mehta",
+    role: "CTO",
+    company: "FinTechX",
+    service: "Software Development"
+  },
+  {
+    review: "Our brand redesign was flawless. The designer truly understood our vision and delivered beyond expectations.",
+    name: "Neha Sharma",
+    role: "Marketing Lead",
+    company: "Brandify",
+    service: "Design"
+  },
+  {
+    review: "Content quality was top-notch and SEO results improved within weeks. Highly recommended.",
+    name: "Rohit Verma",
+    role: "Founder",
+    company: "GrowthLabs",
+    service: "Writing"
+  },
+  {
+    review: "Our ad campaigns scaled profitably with experts we found here. ROI increased by 3x.",
+    name: "Kunal Singh",
+    role: "Performance Marketer",
+    company: "AdBoost",
+    service: "Marketing"
+  },
+  {
+    review: "Booked a verified electrician within hours. Professional, punctual, and affordable.",
+    name: "Pooja Patel",
+    role: "Home Owner",
+    company: "Ahmedabad",
+    service: "Home Services"
+  },
+  {
+    review: "Strategic consulting helped restructure our operations and increase efficiency drastically.",
+    name: "Ankit Malhotra",
+    role: "CEO",
+    company: "CoreBiz",
+    service: "Consulting"
+  }
+];
+
 
   return (
     <>
@@ -347,6 +392,46 @@ const Step = ({ icon, title, desc }) => (
       )}
 
     </div>
+  </div>
+</section>
+
+
+<section id="testimonials" className="bg-white py-24">
+  <div className="max-w-8xl mx-auto px-6 lg:px-10">
+
+    <div className="flex items-center gap-3 mb-12">
+      <div className="w-1 h-8 bg-[#6B46C1] rounded-full"></div>
+      <h2 className="text-3xl font-bold text-[#1F2937]">Testimonials</h2>
+    </div>
+
+    <div className="overflow-hidden w-full">
+    <div className="flex w-max gap-8 animate-testimonials">
+
+
+        {testimonials.concat(testimonials).map((item, i) => (
+          <div
+            key={i}
+            className="w-80 sm:w-96 bg-white border rounded-2xl p-6 shadow hover:shadow-xl transition"
+          >
+            <p className="text-[#1F2937] text-sm leading-relaxed mb-4">
+              “{item.review}”
+            </p>
+
+            <div className="border-t pt-4 mt-4">
+              <h4 className="font-semibold text-[#6B46C1]">{item.name}</h4>
+              <p className="text-sm text-[#6B7280]">
+                {item.role} @ {item.company}
+              </p>
+              <span className="inline-block mt-2 text-xs bg-[#E9D5FF] text-[#6B46C1] px-3 py-1 rounded-full">
+                {item.service}
+              </span>
+            </div>
+          </div>
+        ))}
+
+      </div>
+    </div>
+
   </div>
 </section>
 

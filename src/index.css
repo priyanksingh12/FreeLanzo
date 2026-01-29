@@ -17,3 +17,12 @@
 html, body {
   overflow-x: hidden;
 }
+
+@keyframes marquee-testimonials {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-testimonials {
+  animation: marquee-testimonials 30s linear infinite; 
+}
