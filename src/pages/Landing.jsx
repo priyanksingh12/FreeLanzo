@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
+import Navbar from '../components/NavbarLanding'
 import Footer from '../components/Footer';
 import { FaGlobe, FaUsers, FaHandshake, FaBriefcase,FaCode, FaPaintBrush, FaPenNib, FaBullhorn, FaChartLine ,FaHome ,FaUserCheck, FaLock, FaUserPlus,FaWallet,FaShieldAlt,  FaBolt, FaRobot} from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
@@ -100,29 +100,23 @@ const Step = ({ icon, title, desc }) => (
           Trusted by leading companies worldwide
         </h2>
 
-   <div className=" w-full">
-  <div className="relative w-full">
-    <div className="flex w-max animate-marquee">
-      {[...logos, ...logos].map((logo, i) => (
-       <div
-  key={i}
-  className="logo-card shrink-0 w-48 h-30 mx-6 flex items-center justify-center 
-             rounded-2xl bg-white/80 
-             border border-gray-200 
-             shadow-md  transition-transform duration-300 ease-out
-             hover:scale-120 hover:shadow-lg"
->
-  <img
-    src={logo}
-    alt="Company logo"
-    className="h-14 w-auto object-contain"
-  />
-</div>
-
-      ))}
-    </div>
+  <div className="w-full overflow-hidden relative">
+  <div className="flex w-max items-center gap-12 animate-marquee">
+    {logos.concat(logos).map((logo, i) => (
+      <div
+        key={i}
+        className="logo-card shrink-0 bg-white rounded-xl shadow-md w-48 h-28 flex items-center justify-center transition-transform duration-300 hover:scale-110"
+      >
+        <img
+          src={logo}
+          alt="Company logo"
+          className="h-14 w-auto object-contain"
+        />
+      </div>
+    ))}
   </div>
 </div>
+
 
       </section>
 
