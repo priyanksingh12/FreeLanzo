@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { FaArrowLeft, FaGoogle, FaApple, FaEye, FaEyeSlash, FaSpinner, FaLock, FaEnvelope, FaUser } from "react-icons/fa";
+import { GoogleLogin } from "@react-oauth/google";
+import { FaArrowLeft, FaEye, FaEyeSlash, FaSpinner, FaLock, FaEnvelope, FaUser } from "react-icons/fa";
 import { authStart, authSuccess, authFailure, clearError } from "../features/auth/authSlice";
+import axiosClient from "../api/axiosClient";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -61,33 +63,17 @@ const Signup = () => {
     return true;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
 
     dispatch(authStart());
-
-    // Mock API Call delay
-    setTimeout(() => {
-      const mockUser = {
-        name: name,
-        email: email,
-        avatarUrl: null,
-      };
-      dispatch(authSuccess(mockUser));
-    }, 1500);
-  };
-
-  const handleSocialSignup = (provider) => {
-    dispatch(authStart());
-    setTimeout(() => {
-      const mockUser = {
-        name: `${provider} User`,
-        email: `${provider.toLowerCase()}user@example.com`,
-        avatarUrl: null,
-      };
-      dispatch(authSuccess(mockUser));
-    }, 1200);
+    try {
+      const { data } = await axiosClient.post("/auth/register", { name, email, password });
+      dispatch(authSuccess(data.data.user));
+    } catch (err) {
+      dispatch(authFailure(err.response?.data?.message || "Registration failed"));
+    }
   };
 
   return (
@@ -275,25 +261,21 @@ const Signup = () => {
               <div className="h-px bg-gray-200 flex-grow"></div>
             </div>
 
-            <div className="mt-4 grid grid-cols-2 gap-4">
-              <button
-                type="button"
-                onClick={() => handleSocialSignup("Google")}
-                disabled={loading}
-                className="flex items-center justify-center gap-2 py-2.5 px-4 border border-gray-200 rounded-xl hover:bg-gray-50 hover:border-gray-300 active:bg-gray-100 transition font-semibold text-sm text-gray-700 bg-white"
-              >
-                <FaGoogle className="text-red-500 text-base" />
-                <span>Google</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => handleSocialSignup("Apple")}
-                disabled={loading}
-                className="flex items-center justify-center gap-2 py-2.5 px-4 border border-gray-200 rounded-xl hover:bg-gray-50 hover:border-gray-300 active:bg-gray-100 transition font-semibold text-sm text-gray-700 bg-white"
-              >
-                <FaApple className="text-gray-900 text-base" />
-                <span>Apple</span>
-              </button>
+            <div className="mt-4 flex justify-center">
+              <GoogleLogin
+                onSuccess={async (credentialResponse) => {
+                  dispatch(authStart());
+                  try {
+                    const { data } = await axiosClient.post("/auth/google", {
+                      idToken: credentialResponse.credential,
+                    });
+                    dispatch(authSuccess(data.data.user));
+                  } catch (err) {
+                    dispatch(authFailure(err.response?.data?.message || "Google sign-in failed"));
+                  }
+                }}
+                onError={() => dispatch(authFailure("Google sign-in failed"))}
+              />
             </div>
 
             {/* Footer Login Navigation */}
