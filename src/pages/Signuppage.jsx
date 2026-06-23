@@ -5,12 +5,13 @@ import { GoogleLogin } from "@react-oauth/google";
 import { FaArrowLeft, FaEye, FaEyeSlash, FaSpinner, FaLock, FaEnvelope, FaUser } from "react-icons/fa";
 import { authStart, authSuccess, authFailure, clearError } from "../features/auth/authSlice";
 import axiosClient from "../api/axiosClient";
+import { ROUTES } from "../routes/paths";
 
 const Signup = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const { loading, error, isAuthenticated } = useSelector((state) => state.auth);
+  const { loading, error } = useSelector((state) => state.auth);
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -25,13 +26,6 @@ const Signup = () => {
     dispatch(clearError());
     setValidationError("");
   }, [dispatch]);
-
-  // Redirect if already authenticated
-  useEffect(() => {
-    if (isAuthenticated) {
-      navigate("/landing");
-    }
-  }, [isAuthenticated, navigate]);
 
   const validateForm = () => {
     if (!name.trim()) {
@@ -71,6 +65,7 @@ const Signup = () => {
     try {
       const { data } = await axiosClient.post("/auth/register", { name, email, password });
       dispatch(authSuccess(data.data.user));
+      navigate(ROUTES.HOME);
     } catch (err) {
       dispatch(authFailure(err.response?.data?.message || "Registration failed"));
     }
@@ -93,7 +88,7 @@ const Signup = () => {
           {/* Top Logo and Back Navigation */}
           <div className="z-10 flex items-center justify-between">
             <button 
-              onClick={() => navigate("/landing")}
+              onClick={() => navigate(ROUTES.LANDING)}
               className="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 transition rounded-xl text-sm font-semibold backdrop-blur-sm border border-white/10"
             >
               <FaArrowLeft />
@@ -129,7 +124,7 @@ const Signup = () => {
           {/* Mobile Back Button */}
           <div className="md:hidden absolute top-6 left-6">
             <button 
-              onClick={() => navigate("/landing")}
+              onClick={() => navigate(ROUTES.LANDING)}
               className="text-[#6B46C1] hover:text-[#553C9A] transition flex items-center gap-2 text-sm font-semibold"
             >
               <FaArrowLeft /> Back
@@ -270,6 +265,7 @@ const Signup = () => {
                       idToken: credentialResponse.credential,
                     });
                     dispatch(authSuccess(data.data.user));
+                    navigate(ROUTES.HOME);
                   } catch (err) {
                     dispatch(authFailure(err.response?.data?.message || "Google sign-in failed"));
                   }
@@ -284,7 +280,7 @@ const Signup = () => {
                 Already have an account?{" "}
                 <button
                   type="button"
-                  onClick={() => navigate("/login")}
+                  onClick={() => navigate(ROUTES.LOGIN)}
                   className="text-[#6B46C1] hover:text-[#553C9A] font-bold hover:underline"
                 >
                   Log in
