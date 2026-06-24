@@ -65,9 +65,9 @@ const Signup = () => {
     dispatch(authStart());
     try {
       const { data } = await axiosClient.post("/auth/register", { name, email, password });
-      dispatch(authSuccess(data.data.user));
-      dispatch(setUserData(data.data.user));
-      navigate(ROUTES.HOME);
+dispatch(authSuccess(data.data));        // was: data.data.user
+dispatch(setUserData(data.data.user));
+navigate(ROUTES.HOME);
     } catch (err) {
       dispatch(authFailure(err.response?.data?.message || "Registration failed"));
     }
@@ -263,12 +263,10 @@ const Signup = () => {
                 onSuccess={async (credentialResponse) => {
                   dispatch(authStart());
                   try {
-                    const { data } = await axiosClient.post("/auth/google", {
-                      idToken: credentialResponse.credential,
-                    });
-                    dispatch(authSuccess(data.data.user));
-                    dispatch(setUserData(data.data.user));
-                    navigate(ROUTES.HOME);
+                    const { data } = await axiosClient.post("/auth/google", { idToken: credentialResponse.credential });
+dispatch(authSuccess(data.data));        // was: data.data.user
+dispatch(setUserData(data.data.user));
+navigate(ROUTES.HOME);
                   } catch (err) {
                     dispatch(authFailure(err.response?.data?.message || "Google sign-in failed"));
                   }
