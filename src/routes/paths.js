@@ -6,4 +6,8 @@ export const ROUTES = {
   LOGIN: "/login",
   SIGNUP: "/signup",
   HOME: "/home", // placeholder — real homepage UI will be built later
+  ONBOARDING_ROLE: "/onboarding/role",
+  ONBOARDING_LOCATION: "/onboarding/location",
+  ONBOARDING_SKILLS: "/onboarding/skills",
+  ONBOARDING_PROFILE: "/onboarding/profile",
 };

@@ -45,8 +45,18 @@ const userSchema = new mongoose.Schema(
     },
     role: {
       type: String,
-      enum: ["freelancer", "client", "admin"],
-      default: "client",
+      enum: ["worker", "hirer", null],
+      default: null,
+    },
+    onboardingStep: {
+      type: String,
+      enum: ["role", "location", "skills", "profile", "completed"],
+      default: "role",
+    },
+    location: {
+      country: { type: String, default: null },
+      state: { type: String, default: null },
+      city: { type: String, default: null },
     },
     isVerified: {
       type: Boolean,
@@ -94,6 +104,8 @@ userSchema.methods.toSafeJSON = function () {
     avatarUrl: this.avatarUrl,
     provider: this.provider,
     role: this.role,
+    onboardingStep: this.onboardingStep,
+    location: this.location,
     isVerified: this.isVerified,
     createdAt: this.createdAt,
   };

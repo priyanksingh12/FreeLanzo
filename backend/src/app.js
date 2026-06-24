@@ -7,6 +7,7 @@ const cookieParser = require("cookie-parser");
 
 const env = require("./config/env");
 const authRoutes = require("./routes/auth.routes");
+const onboardingRoutes = require("./routes/onboarding.routes");
 const { notFound, errorHandler } = require("./middlewares/error.middleware");
 
 const app = express();
@@ -38,6 +39,7 @@ app.get("/api/v1/health", (req, res) => {
 
 // Routes
 app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/onboarding", onboardingRoutes);
 
 // 404 + error handling (must be last)
 app.use(notFound);

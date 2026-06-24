@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { GoogleLogin } from "@react-oauth/google";
 import { FaArrowLeft, FaEye, FaEyeSlash, FaSpinner, FaLock, FaEnvelope, FaUser } from "react-icons/fa";
 import { authStart, authSuccess, authFailure, clearError } from "../features/auth/authSlice";
+import { setUserData } from "../features/user/userSlice";
 import axiosClient from "../api/axiosClient";
 import { ROUTES } from "../routes/paths";
 
@@ -65,6 +66,7 @@ const Signup = () => {
     try {
       const { data } = await axiosClient.post("/auth/register", { name, email, password });
       dispatch(authSuccess(data.data.user));
+      dispatch(setUserData(data.data.user));
       navigate(ROUTES.HOME);
     } catch (err) {
       dispatch(authFailure(err.response?.data?.message || "Registration failed"));
@@ -265,6 +267,7 @@ const Signup = () => {
                       idToken: credentialResponse.credential,
                     });
                     dispatch(authSuccess(data.data.user));
+                    dispatch(setUserData(data.data.user));
                     navigate(ROUTES.HOME);
                   } catch (err) {
                     dispatch(authFailure(err.response?.data?.message || "Google sign-in failed"));

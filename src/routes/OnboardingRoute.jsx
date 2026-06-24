@@ -3,11 +3,7 @@ import { Navigate, Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { ROUTES } from "./paths";
 
-/**
- * Wraps routes that require the user to be logged in (e.g. /home,
- * /dashboard, /profile). If not authenticated, send them to login.
- */
-const PrivateRoute = () => {
+const OnboardingRoute = () => {
   const { isAuthenticated } = useSelector((state) => state.auth);
   const { onboardingStep } = useSelector((state) => state.user);
 
@@ -15,11 +11,11 @@ const PrivateRoute = () => {
     return <Navigate to={ROUTES.LOGIN} replace />;
   }
 
-  if (onboardingStep && onboardingStep !== "completed") {
-    return <Navigate to={ROUTES.ONBOARDING_ROLE} replace />;
+  if (onboardingStep === "completed") {
+    return <Navigate to={ROUTES.HOME} replace />;
   }
 
   return <Outlet />;
 };
 
-export default PrivateRoute;
+export default OnboardingRoute;
