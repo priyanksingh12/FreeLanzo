@@ -4,15 +4,24 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Landing from "./pages/Landing";
 import Login from "./pages/Loginpage";
 import Signup from "./pages/Signuppage";
-import Home from "./pages/Home";
+
 import PublicRoute from "./routes/PublicRoute";
 import PrivateRoute from "./routes/PrivateRoute";
+import RoleRoute from "./routes/RoleRoute";
+import RootRedirect from "./routes/RootRedirect";
 import OnboardingRoute from "./routes/OnboardingRoute";
 import OnboardingLayout from "./pages/onboarding/OnboardingLayout";
 import RoleSelection from "./pages/onboarding/RoleSelection";
 import LocationSelection from "./pages/onboarding/LocationSelection";
 import SkillsSetup from "./pages/onboarding/SkillsSetup";
 import ProfileCreation from "./pages/onboarding/ProfileCreation";
+import DashboardLayout from "./components/layout/DashboardLayout";
+import WorkerDashboard from "./pages/worker/WorkerDashboard";
+import ApplyJob from "./pages/worker/ApplyJob";
+import HirerDashboard from "./pages/hirer/HirerDashboard";
+import PostJob from "./pages/hirer/PostJob";
+import WorkerDiscovery from "./pages/hirer/WorkerDiscovery";
+import WorkerProfile from "./pages/shared/WorkerProfile";
 import axiosClient from "./api/axiosClient";
 import { authSuccess, logout } from "./features/auth/authSlice";
 import { setUserData } from "./features/user/userSlice";
@@ -58,7 +67,7 @@ const AppWrapper = () => {
 
   return (
     <Routes>
-      <Route path="/" element={<Navigate to="/landing" />} />
+      <Route path="/" element={<RootRedirect />} />
 
       <Route
         path="/landing"
@@ -75,7 +84,28 @@ const AppWrapper = () => {
       </Route>
 
       <Route element={<PrivateRoute />}>
-        <Route path="/home" element={<Home />} />
+
+        
+        {/* Dashboard Layout for authenticated users */}
+        <Route element={<DashboardLayout />}>
+          
+          {/* Worker Routes */}
+          <Route element={<RoleRoute allowedRole="worker" />}>
+            <Route path="/worker/dashboard" element={<WorkerDashboard />} />
+            <Route path="/jobs/:jobId/apply" element={<ApplyJob />} />
+          </Route>
+          
+          {/* Hirer Routes */}
+          <Route element={<RoleRoute allowedRole="hirer" />}>
+            <Route path="/hirer/dashboard" element={<HirerDashboard />} />
+            <Route path="/hirer/post-job" element={<PostJob />} />
+            <Route path="/hirer/workers" element={<WorkerDiscovery />} />
+          </Route>
+
+          {/* Shared Routes within layout */}
+          <Route path="/workers/:workerId" element={<WorkerProfile />} />
+
+        </Route>
       </Route>
 
       <Route element={<OnboardingRoute />}>
