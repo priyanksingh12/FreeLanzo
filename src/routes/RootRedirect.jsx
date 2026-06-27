@@ -2,25 +2,21 @@ import React from "react";
 import { Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { ROUTES } from "./paths";
+import { getDashboardPath } from "./getDashboardPath";
 
 /**
- * Redirects the user to their respective dashboard based on their role.
- * Used at the root authenticated path.
+ * Handles "/" directly: guests go to the landing page, authenticated
+ * users go to wherever they belong (onboarding step or their dashboard).
  */
 const RootRedirect = () => {
-  const { role } = useSelector((state) => state.user);
+  const { isAuthenticated } = useSelector((state) => state.auth);
+  const { role, onboardingStep } = useSelector((state) => state.user);
 
-  if (role === "worker") {
-    return <Navigate to={ROUTES.WORKER_DASHBOARD} replace />;
+  if (!isAuthenticated) {
+    return <Navigate to={ROUTES.LANDING} replace />;
   }
 
-  if (role === "hirer") {
-    return <Navigate to={ROUTES.HIRER_DASHBOARD} replace />;
-  }
-
-  // Fallback if role is somehow missing but they are onboarded
-  // This shouldn't normally happen.
-  return <Navigate to={ROUTES.LANDING} replace />;
+  return <Navigate to={getDashboardPath({ role, onboardingStep })} replace />;
 };
 
 export default RootRedirect;

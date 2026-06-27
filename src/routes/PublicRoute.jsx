@@ -1,20 +1,19 @@
 import React from "react";
 import { Navigate, Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { ROUTES } from "./paths";
+import { getDashboardPath } from "./getDashboardPath";
 
 /**
  * Wraps routes that should only be visible to GUESTS (login, signup).
- * If the user is already authenticated, redirect them to HOME instead of
- * letting them see the auth form at all. This removes the "flash then
- * bounce back" effect, since the redirect happens BEFORE the page renders,
- * not inside a useEffect after the page already mounted.
+ * If the user is already authenticated, send them to wherever they
+ * actually belong instead of letting them see the auth form.
  */
 const PublicRoute = () => {
   const { isAuthenticated } = useSelector((state) => state.auth);
+  const { role, onboardingStep } = useSelector((state) => state.user);
 
   if (isAuthenticated) {
-    return <Navigate to={ROUTES.HOME} replace />;
+    return <Navigate to={getDashboardPath({ role, onboardingStep })} replace />;
   }
 
   return <Outlet />;
