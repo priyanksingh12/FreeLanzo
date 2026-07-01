@@ -11,6 +11,7 @@ const {
   setLocation,
   setSkills,
   completeOnboarding,
+  resetRole,
 } = require("../controllers/onboarding.controller");
 
 const router = express.Router();
@@ -22,5 +23,6 @@ router.patch("/role", roleValidator, validate, setRole);
 router.patch("/location", locationValidator, validate, setLocation);
 router.patch("/skills", skillsValidator, validate, setSkills);
 router.patch("/complete", completeOnboarding);
+router.patch("/reset-role", resetRole);
 
 module.exports = router;
