@@ -92,4 +92,22 @@ const completeOnboarding = asyncHandler(async (req, res) => {
   res.status(200).json(new ApiResponse(200, { user: user.toSafeJSON() }, "Onboarding complete"));
 });
 
-module.exports = { setRole, setLocation, setSkills, completeOnboarding };
+// PATCH /api/v1/onboarding/reset-role
+// Deliberate, user-initiated action from Settings — NOT triggered by
+// login/logout. Resets role + onboarding progress so the user goes
+// through role selection again. Existing WorkerProfile/HirerProfile
+// documents are left untouched (so switching back later restores their
+// old skills/bio/etc. rather than starting from zero).
+const resetRole = asyncHandler(async (req, res) => {
+  const user = await User.findByIdAndUpdate(
+    req.user._id,
+    { role: null, onboardingStep: "role" },
+    { new: true }
+  );
+
+  res
+    .status(200)
+    .json(new ApiResponse(200, { user: user.toSafeJSON() }, "Role reset — redo onboarding"));
+});
+
+module.exports = { setRole, setLocation, setSkills, completeOnboarding, resetRole };
