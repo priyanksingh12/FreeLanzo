@@ -16,5 +16,6 @@ export const ROUTES = {
   APPLY_JOB: "/jobs/:jobId/apply",
   POST_JOB: "/hirer/post-job",
   WORKER_DISCOVERY: "/hirer/workers",
-  WORKER_PROFILE: "/workers/:workerId"
+  WORKER_PROFILE: "/workers/:workerId",
+  SETTINGS: "/settings"
 };
