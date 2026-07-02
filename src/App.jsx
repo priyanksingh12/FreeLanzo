@@ -22,6 +22,7 @@ import HirerDashboard from "./pages/hirer/HirerDashboard";
 import PostJob from "./pages/hirer/PostJob";
 import WorkerDiscovery from "./pages/hirer/WorkerDiscovery";
 import WorkerProfile from "./pages/shared/WorkerProfile";
+import Settings from "./pages/Settings";
 import axiosClient from "./api/axiosClient";
 import { authSuccess, logout } from "./features/auth/authSlice";
 import { setUserData } from "./features/user/userSlice";
@@ -104,6 +105,7 @@ const AppWrapper = () => {
 
           {/* Shared Routes within layout */}
           <Route path="/workers/:workerId" element={<WorkerProfile />} />
+          <Route path="/settings" element={<Settings />} />
 
         </Route>
       </Route>
