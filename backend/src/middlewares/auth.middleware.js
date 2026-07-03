@@ -33,4 +33,16 @@ const protect = asyncHandler(async (req, res, next) => {
   next();
 });
 
-module.exports = { protect };
+/**
+ * Restricts a route to one or more roles. Must run AFTER `protect`,
+ * since it depends on `req.user` already being set.
+ * Usage: router.post("/", protect, restrictTo("hirer"), createJob);
+ */
+const restrictTo = (...roles) => (req, res, next) => {
+  if (!roles.includes(req.user.role)) {
+    return next(new ApiError(403, `This action requires role: ${roles.join(" or ")}`));
+  }
+  next();
+};
+
+module.exports = { protect, restrictTo };
