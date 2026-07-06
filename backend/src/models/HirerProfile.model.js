@@ -13,6 +13,7 @@ const hirerProfileSchema = new mongoose.Schema(
     about: { type: String, maxlength: 1000, default: "" },
     jobsPosted: { type: Number, default: 0 },
     activeProjects: { type: Number, default: 0 },
+    rating: { type: Number, min: 0, max: 5, default: 0 },
   },
   { timestamps: true }
 );
